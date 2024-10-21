@@ -122,6 +122,6 @@ public void updateHealth(){
     //If this function is called, the player character dies. The game goes to a 'Game Over' screen.
     public void Die()
     {
-        SceneManager.LoadScene("Game Over");
+        SceneManager.LoadScene("Ded");
     }
 }

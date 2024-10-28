@@ -29,6 +29,7 @@ public class PlayerScript : MonoBehaviour
     {
         //During setup we call UpdateScore to make sure our score text looks correct
         UpdateScore();
+        transform.position = new Vector3(-9,0.3f,0);
     }
 
     //Update is a lot like Start, but it automatically gets triggered once per frame
@@ -75,7 +76,7 @@ public class PlayerScript : MonoBehaviour
         if (other.gameObject.CompareTag("Hazard"))
         {
             //Run your 'you lose' function!
-           transform.position = new Vector2 (-4,0);
+           transform.position = new Vector2 (-9,0.3f);
            
            Health --;
             if (Health == 0){
@@ -96,6 +97,9 @@ public class PlayerScript : MonoBehaviour
             Score++;
             //And then update the game's score text
             UpdateScore();
+            if (Score == 1){
+                Winner();
+            }
            
         }
         PoroScript poro = other.gameObject.GetComponent<PoroScript>();
@@ -123,5 +127,8 @@ public void updateHealth(){
     public void Die()
     {
         SceneManager.LoadScene("Ded");
+    }
+    public void Winner(){
+        SceneManager.LoadScene("Winner");
     }
 }
